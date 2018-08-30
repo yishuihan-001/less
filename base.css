@@ -1,0 +1,176 @@
+/*Author: Slient*/
+.box {
+  color: #fe33ac;
+  border-color: #fdcdea;
+}
+.box div {
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+}
+#header {
+  color: #6c94be;
+}
+#header .nav {
+  font-size: 20px;
+}
+#header .logo {
+  width: 200px;
+  height: 100px;
+  float: left;
+  background: #aaa;
+}
+.bordered {
+  border-top: dotted 1px green;
+  border-bottom: dashed 2px blue;
+}
+.text-none {
+  text-decoration: none;
+  color: #5b83ad;
+}
+#menu a {
+  color: #111;
+  border-top: dotted 1px green;
+  border-bottom: dashed 2px blue;
+  text-decoration: none;
+  color: #5b83ad;
+}
+.post a {
+  color: red;
+  border-top: dotted 1px green;
+  border-bottom: dashed 2px blue;
+  text-decoration: none;
+  color: #5b83ad;
+}
+.clearfix {
+  display: block;
+  zoom: 1;
+}
+.clearfix:after {
+  content: '';
+  display: block;
+  clear: both;
+  visibility: hidden;
+  font-size: 0;
+  line-height: 0;
+  height: 0;
+}
+.clearfix::after {
+  content: '';
+  display: block;
+  clear: both;
+  visibility: hidden;
+  font-size: 0;
+  line-height: 0;
+  height: 0;
+}
+#footer {
+  color: black;
+}
+#footer .logo {
+  width: 300px;
+}
+.screencolor {
+  color: green;
+}
+@media screen and (min-width: 768px) {
+  .screencolor {
+    color: red;
+  }
+}
+.screenColor {
+  color: green;
+}
+@media screen and (min-width: 768px) {
+  .screenColor {
+    color: red;
+  }
+}
+.test {
+  padding-top: 15px;
+  color: #222222;
+  background-color: #ff49bc;
+  height: 110%;
+}
+#bundle {
+  height: 100px;
+  line-height: 100px;
+}
+#bundle .button {
+  display: block;
+  border-color: 1px solid hotpink;
+  background: grey;
+}
+#bundle .button:hover {
+  background-color: #ffffff;
+}
+#header a {
+  color: skybule;
+  display: block;
+  border-color: 1px solid hotpink;
+  background: grey;
+}
+#header a:hover {
+  background-color: #ffffff;
+}
+#footer {
+  color: #333333;
+}
+#footer h {
+  color: #333333;
+}
+#footer a {
+  background: #333333;
+}
+#footer a i {
+  color: #888888;
+}
+.banner .hihi {
+  font-weight: bold;
+  line-height: 40px;
+}
+.test-img {
+  color: #444444;
+  background-image: url('../images/white-brand.jpg');
+}
+.test-var {
+  content: 'found';
+}
+.test-lazy {
+  width: 9%;
+  height: 9%;
+}
+.test-lazy2 {
+  width: 100%;
+  height: 100%;
+}
+.class {
+  one: 1;
+}
+.class .blass {
+  three: 3;
+}
+.test-import {
+  font-size: 20px;
+  background: #008000;
+}
+nav ul {
+  background: blue;
+}
+.inline,
+nav ul,
+.a {
+  color: red;
+}
+.a {
+  font-size: 18px;
+}
+tr .bucket,
+.some-class {
+  color: blue;
+}
+.some-class {
+  border: 1px solid green;
+}
+.abc {
+  color: #999999;
+}

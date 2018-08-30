@@ -1,0 +1,29 @@
+#content p {
+  color: #ffffff;
+  background-color: #333333;
+  border: 2px solid #ff0000;
+}
+#content p::after {
+  content: 'this is the sample form less';
+}
+#content p:after {
+  content: 'this is the sample form less';
+}
+.myStyle {
+  color: #333333;
+  border: 1px solid gray;
+}
+#myDiv {
+  color: #666666;
+  color: #333333;
+  border: 1px solid gray;
+}
+#header {
+  background-color: black;
+}
+#header a {
+  color: red;
+}
+#header p {
+  color: white;
+}

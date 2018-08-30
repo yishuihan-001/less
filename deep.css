@@ -1,0 +1,85 @@
+#header {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+}
+#footer {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+}
+#header {
+  color: #333333;
+  border-left: 1px;
+  border-right: 2px;
+}
+#footer {
+  color: #114411;
+  border-color: #7d2717;
+}
+h1 {
+  content: "I am fnord.";
+}
+#header {
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+}
+.button {
+  border-radius: 6px;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+}
+pre {
+  text-wrap: wrap;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  word-wrap: break-word;
+}
+.some .selector div {
+  color-1: #008000;
+  color-2: #008000;
+  padding-2: 2;
+  border: #008000;
+  boxer: #008000;
+}
+h1 {
+  box-shadow: 2px 5px 1px #000000;
+  -moz-box-shadow: 2px 5px 1px #000000;
+  -webkit-box-shadow: 2px 5px 1px #000000;
+}
+.unimportant {
+  color-1: 1;
+  color-2: 1;
+  padding-2: 2;
+  border: 1;
+  boxer: 1;
+}
+.important {
+  color-1: 2 !important;
+  color-2: 2 !important;
+  padding-2: 2 !important;
+  border: 2 !important;
+  boxer: 2 !important;
+}
+.testimportant {
+  border: 0 !important;
+  boxer: 0 !important;
+}
+.class {
+  color-2: light;
+  padding-2: #888888;
+  color-3: light;
+  padding-3: #888888;
+  margin: 2 2 2 2;
+  color: #a2a2a2;
+  display: block;
+}
+.slient {
+  color: #222222;
+  height: 60%;
+}

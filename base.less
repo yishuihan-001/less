@@ -1,0 +1,283 @@
+// http://www.cnblogs.com/stephenykk/p/5602815.html
+// 变量
+// 注意，由于变量只能定义一次，实际上他们就是“常量”
+@base: #f938ab;
+
+
+/*Author: Slient*/
+
+
+// 函数
+// 函数 .box-shadow(), iscolor(), isnumber(), 函数重载
+.box-shadow(@style, @c) when(iscolor(@c)){
+	-webkit-box-shadow: @style @c;
+	box-shadow: @style @c;
+}
+
+.box-shadow(@style, @alpha:50%) when(isnumber(@alpha)){
+	.box-shadow(@style, rgba(0, 0, 0, @alpha));
+}
+
+// 使用变量, 调用函数
+.box{
+	color: saturate(@base, 5%);
+	border-color: lighten(@base, 30%);
+
+	div{
+		.box-shadow(0 0 5px, 0.7);
+	}
+}
+
+
+// 变量和运算符
+// 定义变量，使用运算符
+@nice-blue: #5B83AD;
+@light-bule: @nice-blue + #111;
+
+// 使用变量
+#header{
+	color: @light-bule;
+
+	.nav{
+		font-size: 20px;
+	}
+
+	.logo{
+		width: 200px;
+		height: 100px;
+		float: left;
+		background: #aaa;
+	}
+}
+
+.bordered{
+	border-top: dotted 1px green;
+	border-bottom: dashed 2px blue;
+}
+
+.text-none{
+	text-decoration: none;
+	color: @nice-blue;
+}
+
+
+// 混合
+// 混合就是一种将一系列属性从一个规则集引入(“混合”)到另一个规则集
+#menu a{
+	color: #111;
+	.bordered;
+	.text-none;
+}
+
+.post a{
+	color: red;
+	.bordered;
+	.text-none;
+}
+
+
+// 嵌套
+// 嵌套 样式规则 这样的代码更简洁, 它模仿了 HTML 的结构. & 表示当前选择器的父选择器
+.clearfix{
+	display: block;
+	zoom: 1;
+
+	&:after{
+		content: '';
+		display: block;
+		clear: both;
+		visibility: hidden;
+		font-size: 0;
+		line-height: 0;
+		height: 0;
+	}
+
+	&::after{
+		content: '';
+		display: block;
+		clear: both;
+		visibility: hidden;
+		font-size: 0;
+		line-height: 0;
+		height: 0;
+	}
+}
+
+#footer{
+	color: black;
+
+	.logo{
+		width: 300px;
+	}
+}
+
+
+// 包含媒体查询的嵌套
+.screencolor{
+	color: green;
+	@media screen and (min-width: 768px){
+		color: red;
+	}
+}
+
+.screenColor{
+    color: green;
+	@media screen{
+        @media (min-width:768px){
+            color:red;
+        }
+    }
+}
+
+
+// 运算
+// 定义变量 变量运算和赋值
+@baseAlpha: 30%;
+@filler: @baseAlpha * 2;
+@other: @baseAlpha + @filler;
+@var: 5px + 10;
+
+.test{
+	padding-top: @var;
+	color: #888 / 4;
+	background-color: @base + #111;
+	height: 100% / 2 + @filler;
+}
+
+
+// 部分混合
+// 只minxin bundle的一部分
+#bundle{
+	height: 100px;
+	line-height: 100px;
+
+	.button{
+		display: block;
+		border-color: 1px solid hotpink;
+		background: grey;
+
+		&:hover{
+			background-color: #ffffff;
+		}
+	}
+}
+
+#header a{
+	color: skybule;
+	#bundle > .button;
+}
+
+
+// 变量的作用域
+// 变量可以在最外层声明，也可以在样式定义{}中声明
+@varcolor: #999999;
+#footer{
+	color: @varcolor;
+
+	h{
+		color: @varcolor;
+	}
+
+	@varcolor: #333333;
+
+	a{
+		background: @varcolor;
+
+		i{
+			color: @varcolor;
+
+			@varcolor: #888888;
+		}
+	}
+}
+
+
+// 变量插值
+// 变量作为插值表达式 使用在选择器中,注意格式@{varname}
+@myselector: banner;
+.@{myselector} .hihi{
+	font-weight: bold;
+	line-height: 40px;
+}
+
+@img: '../images';
+.test-img{
+	color: #444444;
+	background-image: url('@{img}/white-brand.jpg');
+}
+
+
+// 动态变量
+// 变量的值作为另一个变量的名
+.test-var{
+	@found: 'i am found';
+	@varfind: 'found';
+	content: @varfind;
+}
+
+
+// 变量顺序解析 同名覆盖
+.test-lazy{
+    width: @var2;
+    @a2: 9%;
+    height:@a2;
+}
+
+@var2: @a2;
+@a2: 100%;
+
+.test-lazy2{
+    width: @var2;
+    height:@a2;
+}
+
+@var3 : 0;
+.class{
+    @var3:1;
+    .blass{
+        @var3:2;
+        three: @var3;
+        @var3:3;
+    }
+    one: @var3;
+}
+
+@base-color: green;
+.test-import{
+    font-size:20px;
+    background: @base-color;
+}
+
+
+// 继承
+nav ul{
+	&:extend(.inline);
+	background: blue;
+}
+
+.inline{
+	color: red;
+}
+
+.a:extend(.inline){
+	font-size: 18px;
+}
+
+
+.bucket{
+	tr &{
+		color: blue;
+	}
+}
+
+.some-class:extend(tr .bucket){
+	border: 1px solid green;
+}
+
+
+// test
+@abc: #888888;
+.abc{
+	color: @abc;
+}
+@abc: #999999;

@@ -1,0 +1,152 @@
+// https://blog.csdn.net/sigangjun/article/details/48441483
+
+.rounded-corners (@radius: 5px) {
+    -webkit-border-radius: @radius;
+    -moz-border-radius: @radius;
+    -ms-border-radius: @radius;
+    -o-border-radius: @radius;
+    border-radius: @radius;
+}
+
+#header {
+    .rounded-corners;
+}
+
+#footer {
+    .rounded-corners(10px);
+}
+
+
+@the-border: 1px;
+@base-color: #111;
+@red:        #842210;
+
+#header {
+    color: @base-color * 3;
+    border-left: @the-border;
+    border-right: (@the-border * 2);
+}
+#footer {
+    color: (@base-color + #003300);
+    border-color: desaturate(@red, 10%);
+}
+
+
+// 可以在定义变量值时使用其它的变量
+@fnord: "I am fnord.";
+@vare: 'fnord';
+h1{
+	content: @@vare;
+}
+
+
+.border-radius (@radius) {
+    border-radius: @radius;
+    -moz-border-radius: @radius;
+    -webkit-border-radius: @radius;
+}
+
+#header {
+    .border-radius(4px);
+}
+.button {
+    .border-radius(6px);
+}
+
+// .wrap类可供使用, 且不会暴露于css中
+.wrap () {
+    text-wrap: wrap;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    word-wrap: break-word;
+}
+
+pre { .wrap }
+
+
+.mixin(@color) {
+    color-1: @color;
+}
+.mixin(@color; @padding:2) {
+    color-2: @color;
+    padding-2: @padding;
+}
+.mixin(@color; @padding; @margin: 2) {
+    color-3: @color;
+    padding-3: @padding;
+    margin: @margin @margin @margin @margin;
+}
+.some .selector div {
+    .mixin(#008000);
+}
+
+
+.box-shadow (@x: 0, @y: 0, @blur: 1px, @color: #000) {
+    box-shadow: @arguments;
+    -moz-box-shadow: @arguments;
+    -webkit-box-shadow: @arguments;
+}
+h1{
+	.box-shadow(2px, 5px);
+}
+
+
+.mixin (@a: 0) {
+    border: @a;
+    boxer: @a;
+}
+.unimportant {
+    .mixin(1); 
+}
+.important {
+    .mixin(2) !important; 
+}
+
+.testimportant{
+	.mixin!important;
+}
+
+
+.mixin (dark, @color) {
+    color: darken(@color, 10%);
+}
+.mixin (light, @color) {
+    color: lighten(@color, 10%);
+}
+.mixin (@_, @color) {
+    display: block;
+}
+
+@switch: light;
+
+.class {
+    .mixin(@switch, #888);
+}
+
+
+// .mixin (@a) {
+// 	height: 10px;
+//     color: @a;
+// }
+// .mixin (@a, @b) {
+//     color: fade(@a, @b);
+// }
+// .class {
+//     .mixin(red, 90);
+// }
+
+
+@base: 5%;
+@filler: (@base * 2);
+@other: (@base + @filler);
+
+.slient{
+	color: (#888 / 4);
+	height: 100% / 2 + @filler;
+}
+
+
+
+
+
+

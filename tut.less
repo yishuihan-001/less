@@ -1,0 +1,64 @@
+@textColor: white;
+@bgColor: #333333;
+@border: 2px solid red;
+@content: 'this is the sample form less';
+
+// variable example
+#content p{
+	color: @textColor;
+	background-color: @bgColor;
+	border: @border;
+}
+
+#content p::after{
+	content: @content;
+}
+
+#content p:after{
+	content: @content;
+}
+
+
+// mixin example 混合
+.myStyle{
+	color: #333333;
+	border: 1px solid gray;
+}
+
+#myDiv{
+	color: #666666;
+	.myStyle;
+}
+
+
+// nested style example 嵌套
+#header{
+	background-color: black;
+
+	a{
+		color: red;
+	}
+
+	p{
+		color: white;
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
